@@ -24,12 +24,12 @@ function updateDisplay(event) {
     y = event.pageY - cy;
     px = cx + x;
     py = cy + y;
+    if (sx > sy)
+        rad = sy * 0.3;
+    else
+        rad = sx * 0.3;
 
     if (mode == 0) {
-        if (sx > sy)
-            rad = sy * 0.3;
-        else
-            rad = sx * 0.3;
         len = Math.sqrt(((cx - px) ** 2) + ((cy - py) ** 2));
         if (len <= rad) {
             nested.style.left = px + "px";
@@ -37,14 +37,8 @@ function updateDisplay(event) {
         }
         else if (len > rad) {
             len = rad / len;
-            if (sx > sy) {
-                nested.style.left = cx + x * len + "px";
-                nested.style.top = cy + y * len + "px";
-            }
-            else if (sy >= sx) {
-                nested.style.left = cx + x * len + "px";
-                nested.style.top = cy + y * len + "px";
-            }
+            nested.style.left = cx + x * len + "px";
+            nested.style.top = cy + y * len + "px";
         }
     }
 }
@@ -55,37 +49,26 @@ function sleep(milliseconds) {
 }
 
 async function Escape() {
-    var exp = px;
-    var eyp = py;
+    var exp = 0;
+    var eyp = 0;
 
     while (1) {
         if (mode == 1) {
-            if (sx > sy) {
-                exp += 1;
-                eyp += 1;
-            }
-            else if (sy >= sx) {
-                exp += 1;
-                eyp += 1;
-            }
-            len = Math.sqrt(((cx - exp) ** 2) + ((cy - eyp) ** 2));
+            len = Math.sqrt(((x - exp) ** 2) + ((y - eyp) ** 2)) * 8;
+            exp -= (x - exp) / Math.sqrt(len);
+            eyp -= (y - eyp) / Math.sqrt(len);
+            len = Math.sqrt(((exp) ** 2) + ((eyp) ** 2));
             if (len > rad) {
                 len = rad / len;
-                if (sx > sy) {
-                    exp = cx + x * len;
-                    eyp = cy + y * len;
-                }
-                else if (sy >= sx) {
-                    exp = cx + x * len;
-                    eyp = cy + y * len;
-                }
+                exp *= len;
+                eyp *= len;
             }
-            nested.style.left = exp + "px";
-            nested.style.top = eyp + "px";
+            nested.style.left = cx + exp + "px";
+            nested.style.top = cy + eyp + "px";
         }
         if (mode == 0) {
-            exp = px;
-            eyp = py;
+            exp = 0;
+            eyp = 0;
         }
         await sleep(16);
     }
