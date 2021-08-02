@@ -1,0 +1,73 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*       ::::::    ::::::   :::  ::::::::  ::::::::   :::  ::::::    :::::::  */
+/*     :+:   :+: :+:   :+: :+: :+:   :+:  :+:    :+: :+: :+:   :+: :+:    :+: */
+/*    +:+       +:+       +:+ +:+   +:+  +:+    +:+     +:+       +:+    +:+  */
+/*   +#+       +:+       +#+ +:+   +#+  +:+    +#+ +:+ +#+       +#+:+:+#+:   */
+/*  +#+       +#+       +#+   +#+#+#+# #+#+#+#+   +#+ +#+       +#+           */
+/* #+#   #+# #+#   #+# #+#            #+#    #+# #+# #+#   #+# #+#    #+#     */
+/*  ######    ######  ############## ###    ### ###   ######    #######       */
+/*                                                                            */
+/* ************************************************************************** */
+/*                                                                            */
+/*   style.css                                cclarice@student.21-school.ru   */
+/*                                                                            */
+/*   Created/Updated: 2021/08/02 21:28:41  /  2021/08/02 21:28:45 @cclarice   */
+/*                                                                            */
+/* ************************************************************************** */
+
+* {
+  box-sizing: border-box;
+  font-family: Monospace;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  font-size: 107%;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background: white;
+}
+
+.circle {
+	position: relative;
+	width: 80vh;
+	height: 80vh;
+	max-width: 80vw;
+	max-height: 80vw;
+	left: 50vw;
+	top: 50vh;
+	transform: translate(-50%, -50%);
+	background: lightcyan;
+	border: 2px solid black;
+	border-radius: 50%;
+}
+
+.nested {
+	position: fixed;
+	width: 20vh;
+	height: 20vh;
+	max-width: 20vw;
+	max-height: 20vw;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: lightblue;
+	border: 2px solid black;
+	border-radius: 50%;
+}
+
+.mode {
+	position: fixed;
+	border: 2px solid black;
+	top: 5%;
+	left: 5%;
+	width: 20%;
+	height: 10%;
+	padding: 4px;
+	background: white;
+	color: black;
+	font-size: 100%;
+}
