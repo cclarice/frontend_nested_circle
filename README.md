@@ -1,5 +1,5 @@
 # frontend_nested_circle
 ### Example:
-![](https://github.com/cclarice/frontend_sort_circles/blob/main/gif/Modes.gif)
+![](https://github.com/cclarice/frontend_nested_circle/blob/main/gif/example.gif)
 
 ### uwu
